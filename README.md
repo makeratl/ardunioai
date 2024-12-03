@@ -1,102 +1,111 @@
-# ArduinoAI: AI-Enhanced LED Art Installations
+# ArduinoAI LED Art Installations
 
-## 🌟 Project Overview
-This repository documents my journey of collaborating with AI to refactor and enhance custom LED art installations. Originally created as artistic lamp designs, these installations are being reimagined with sophisticated animations through AI assistance. The project serves two purposes:
-1. Showcase how AI can enhance creative LED projects
-2. Demonstrate practical AI integration into existing workflows
+A collection of Arduino-based LED art installations using AI-assisted development.
 
-## 🎯 Project Goals
-- Refactor existing LED installations with AI-generated animations
-- Create complex, smooth, and dynamic lighting effects
-- Document the AI-human collaboration process
-- Share knowledge about integrating AI into creative workflows
-- Provide educational resources for LED art creators
+## Projects
 
-## 💡 Featured Installations
+### Garage Door Display
+- **Location**: Garage door windows
+- **Hardware**: WS2812B LED strips (300 LEDs per window)
+- **Animations**:
+  - Fire effect with dynamic color palette
+  - Cloud/mist effect with smooth transitions
+  - Vertical stripes with customizable colors
 
-### BubbleGlassLamp
-A sophisticated LED lamp featuring:
-- 497 individually addressable LEDs
-- Three distinct sections for complex animations
-- Multiple animation modes including ocean, fire, and matrix effects
-- Detailed documentation in `BubbleGlassLamp/cursorrules.md`
+### 16x16 LED Matrix Display
+- **Location**: Wall-mounted display
+- **Hardware**: 16x16 WS2812B LED Matrix (256 LEDs)
+- **Features**:
+  - WiFi-enabled status display
+  - API-controlled animations
+  - Real-time animation updates
+- **Animations**:
+  - Pulsing colors with smooth transitions
+  - Dynamic spiral patterns
+  - Wave effects
+  - Cloud/mist patterns
+  - Status indicators (checkmark, X mark)
+- **WiFi Status**:
+  - Corner LEDs indicate connection status
+  - Green: Connected
+  - Blinking Red: Connecting/Checking
+  - Solid Red: Disconnected
 
-### GarageDoorDisplay
-An innovative window display system with:
-- 600 LEDs across two synchronized windows
-- Mirrored animation capabilities
-- Various effects from classic Cylon to water simulations
-- Configuration details in `GarageDoorDisplay/cursorrules.md`
+## API Integration
 
-## 🤖 AI Collaboration
-This project demonstrates how AI can:
-- Generate complex LED animation patterns
-- Optimize existing code for better performance
-- Suggest improvements to lighting effects
-- Help document and organize code
-- Assist in troubleshooting and debugging
+### Matrix Controller API
+- **Endpoint**: `/api-T/matrix/config`
+- **Method**: GET
+- **Response Format**:
+```json
+{
+  "mode": 1-4,
+  "brightness": 0-255,
+  "speed": 0-100
+}
+```
+- **Animation Modes**:
+  1. Pulsing Colors
+  2. Spiral
+  3. Wave
+  4. Cloud Mist
 
-## 🛠️ Technical Stack
-- **Hardware:** Arduino MKR 1000 WiFi
-- **LED Type:** WS2812B Addressable LEDs
-- **Primary Library:** FastLED
-- **Development Environment:** Arduino IDE
-- **AI Tools:** Various AI coding assistants
+### Configuration
+- Uses `config.h` for sensitive settings
+- Template provided in `config.h.template`
+- Required settings:
+  - WiFi SSID
+  - WiFi Password
+  - API Host
 
-## 📚 Repository Structure
-Each installation has its own folder containing:
-- Animation sketches (`.ino` files)
-- Configuration documentation
-- Installation-specific guidelines
-- Animation descriptions
-- Performance optimization notes
+## Setup Instructions
 
-## 🎓 Educational Resources
-This repository serves as a learning resource for:
-- LED art installation design
-- Advanced LED animation techniques
-- AI integration in creative projects
-- Arduino programming best practices
-- IoT device management
+1. Clone the repository
+2. Copy `config.h.template` to `config.h` in the project directory
+3. Update WiFi and API credentials in `config.h`
+4. Upload sketch to Arduino MKR1000 or compatible board
+5. Connect LED strip/matrix to specified data pin
 
-## 🔄 Workflow Integration
-Learn how to:
-1. Work with AI to enhance existing projects
-2. Translate creative ideas into code
-3. Optimize animations for performance
-4. Document and share your process
-5. Build upon others' work
+## Dependencies
 
-## 🤝 Contributing
-While this repository primarily documents my personal AI collaboration journey, I welcome:
-- Suggestions for new animations
-- Performance optimization ideas
-- Documentation improvements
-- Questions and discussions about AI integration
+- FastLED Library
+- WiFi101 Library
+- ArduinoJson Library
 
-## 📖 Documentation
-- Each installation has its own `cursorrules.md` file
-- Project-wide guidelines in main `cursorrules.md`
-- Detailed comments in animation code
-- Installation and setup guides
+## Hardware Requirements
 
-## 🔗 Related Resources
+### Garage Door Display
+- Arduino Mega or compatible
+- WS2812B LED strips
+- 5V Power Supply (10A recommended)
+
+### LED Matrix Display
+- Arduino MKR1000 WiFi
+- 16x16 WS2812B Matrix
+- 5V Power Supply (5A recommended)
+
+## Development Notes
+
+- Uses AI-assisted development for pattern generation
+- Implements non-blocking WiFi and API operations
+- Maintains animation continuity during network operations
+- Includes error handling and connection recovery
+- Status feedback through corner LEDs
+
+## Contributing
+
+Feel free to submit issues and enhancement requests!
+
+## Resources
 - [Arduino MKR 1000 Documentation](https://docs.arduino.cc/hardware/mkr-1000-wifi)
 - [FastLED Library](https://fastled.io/)
 - [AI Coding Assistant Resources](https://cursor.sh/)
 - [LED Art Installation Guides](https://learn.adafruit.com/led-art)
 
-## 📞 Contact & Support
-- Find me as **@makerATL** on all social platforms
-- Support my work on [Patreon](https://www.patreon.com/c/makeratl)
-- Open an issue for questions or suggestions
-- Share your own AI-enhanced LED projects
-- Discuss AI integration strategies
+## License
 
-## 📝 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
----
-*This project is part of a larger initiative to demonstrate practical AI integration into various workflows. Follow along to learn how AI can enhance your creative projects!*
+## Support
 
-*Created by makerATL - Bringing AI into creative workflows and maker projects.*
+Support my work on [Patreon](https://www.patreon.com/c/makeratl)
